@@ -1,4 +1,4 @@
-# Lynkio - Checklist Home
+# Lynkio - Lista de tareas realizadas de Home
 
 ## Layout / Estructura
 - [ ] Navbar
