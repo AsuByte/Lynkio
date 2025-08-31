@@ -1,13 +1,12 @@
 # Lynkio - Lista de tareas realizadas de Home
 
 ## Layout / Estructura
-- [ ] Navbar
+- [X] Navbar
   - [X] Logo a la izquierda
   - [X] Nav links (Inicio, Dashboard)
   - [X] Selector de idioma
   - [X] Dark/Light mode toggle
-- [ ] Título centrado
-- [ ] Subtítulo centrado
+- [X] Subtítulo centrado
 
 ## Caja de acortar links
 - [ ] Input para URL
