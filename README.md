@@ -2,15 +2,12 @@
 
 ## Layout / Estructura
 - [ ] Navbar
-  - [ ] Logo a la izquierda
-  - [ ] Nav links (Inicio, Dashboard)
-  - [ ] Selector de idioma
-  - [ ] Dark/Light mode toggle
+  - [X] Logo a la izquierda
+  - [X] Nav links (Inicio, Dashboard)
+  - [X] Selector de idioma
+  - [X] Dark/Light mode toggle
 - [ ] Título centrado
 - [ ] Subtítulo centrado
-- [ ] Footer
-  - [ ] Enlaces de contacto o portafolio (GitHub, LinkedIn)
-  - [ ] Mensaje tipo “Proyecto educativo / 2025”
 
 ## Caja de acortar links
 - [ ] Input para URL
@@ -34,3 +31,8 @@
 - [ ] Dark / Light mode aplicado a todos los elementos
 - [ ] Selector de idioma funcionando (ES / EN)
 - [ ] Transiciones y feedback visual (hover, click)
+
+## Footer
+- [ ] Footer
+  - [ ] Enlaces de contacto o portafolio (GitHub, LinkedIn)
+  - [ ] Mensaje tipo “Proyecto educativo / 2025”
