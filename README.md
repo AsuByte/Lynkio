@@ -9,12 +9,12 @@
 - [X] Subtítulo centrado
 
 ## Caja de acortar links
-- [ ] Input para URL
-- [ ] Botón “Acortar”
+- [X] Input para URL
+- [X] Botón “Acortar”
 - [ ] Validación de URL (formato correcto)
 - [ ] Estado tras acortar:
-  - [ ] Mostrar link corto
-  - [ ] Botón “Copiar”
+  - [X] Mostrar link corto
+  - [X] Botón “Copiar”
   - [ ] Botón “Generar QR”
 
 ## Historial de links
