@@ -1,9 +1,8 @@
 # Lynkio - Lista de tareas realizadas de Home
 
 ## Layout / Estructura
-- [X] Navbar
-  - [X] Logo a la izquierda
-  - [X] Nav links (Inicio, Dashboard)
+- [X] Cabecera
+  - [X] Logo centrado
   - [X] Selector de idioma
   - [X] Dark/Light mode toggle
 - [X] Subtítulo centrado
@@ -27,11 +26,10 @@
 
 ## Extras / UI
 - [ ] Responsivo (desktop y mobile)
-- [ ] Dark / Light mode aplicado a todos los elementos
+- [X] Dark / Light mode aplicado a todos los elementos
 - [ ] Selector de idioma funcionando (ES / EN)
-- [ ] Transiciones y feedback visual (hover, click)
+- [X] Transiciones y feedback visual (hover, click)
 
 ## Footer
 - [ ] Footer
-  - [ ] Enlaces de contacto o portafolio (GitHub, LinkedIn)
-  - [ ] Mensaje tipo “Proyecto educativo / 2025”
+  - [ ] Enlaces de contacto o portafolio (GitHub, LinkedIn) + mensaje informativo
