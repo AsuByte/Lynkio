@@ -14,7 +14,7 @@
 - [ ] Estado tras acortar:
   - [X] Mostrar link corto
   - [X] Botón “Copiar”
-  - [ ] Botón “Generar QR”
+  - [X] Botón “Generar QR”
 
 ## Historial de links
 - [ ] Mostrar máximo 5 links recientes
