@@ -16,6 +16,12 @@
   - [X] Botón “Copiar”
   - [X] Botón “Generar QR”
 
+## Al generar QR
+- [X] Mostrar link corto
+- [X] Mostrar QR
+- [X] Cambiar de color
+- [X] Añadir icono central
+
 ## Historial de links
 - [ ] Mostrar máximo 5 links recientes
 - [ ] Funciona solo si usuario ha iniciado sesión
