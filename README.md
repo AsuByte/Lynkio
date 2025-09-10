@@ -37,5 +37,5 @@
 - [X] Transiciones y feedback visual (hover, click)
 
 ## Footer
-- [ ] Footer
-  - [ ] Enlaces de contacto o portafolio (GitHub, LinkedIn) + mensaje informativo
+- [X] Footer
+  - [X] Enlaces de contacto o portafolio (GitHub, LinkedIn) + mensaje informativo
