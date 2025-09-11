@@ -1,25 +1,26 @@
-# Lynkio - Checklist Home
+# Lynkio - Lista de tareas realizadas de Home
 
 ## Layout / Estructura
-- [ ] Navbar
-  - [ ] Logo a la izquierda
-  - [ ] Nav links (Inicio, Dashboard)
-  - [ ] Selector de idioma
-  - [ ] Dark/Light mode toggle
-- [ ] Título centrado
-- [ ] Subtítulo centrado
-- [ ] Footer
-  - [ ] Enlaces de contacto o portafolio (GitHub, LinkedIn)
-  - [ ] Mensaje tipo “Proyecto educativo / 2025”
+- [X] Cabecera
+  - [X] Logo centrado
+  - [X] Selector de idioma
+  - [X] Dark/Light mode toggle
+- [X] Subtítulo centrado
 
 ## Caja de acortar links
-- [ ] Input para URL
-- [ ] Botón “Acortar”
+- [X] Input para URL
+- [X] Botón “Acortar”
 - [ ] Validación de URL (formato correcto)
 - [ ] Estado tras acortar:
-  - [ ] Mostrar link corto
-  - [ ] Botón “Copiar”
-  - [ ] Botón “Generar QR”
+  - [X] Mostrar link corto
+  - [X] Botón “Copiar”
+  - [X] Botón “Generar QR”
+
+## Al generar QR
+- [X] Mostrar link corto
+- [X] Mostrar QR
+- [X] Cambiar de color
+- [X] Añadir icono central
 
 ## Historial de links
 - [ ] Mostrar máximo 5 links recientes
@@ -31,6 +32,10 @@
 
 ## Extras / UI
 - [ ] Responsivo (desktop y mobile)
-- [ ] Dark / Light mode aplicado a todos los elementos
+- [X] Dark / Light mode aplicado a todos los elementos
 - [ ] Selector de idioma funcionando (ES / EN)
-- [ ] Transiciones y feedback visual (hover, click)
+- [X] Transiciones y feedback visual (hover, click)
+
+## Footer
+- [X] Footer
+  - [X] Enlaces de contacto o portafolio (GitHub, LinkedIn) + mensaje informativo
