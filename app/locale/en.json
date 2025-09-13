@@ -1,0 +1,33 @@
+{
+  "Hero": {
+    "subtext": "Shorten, generate your QR codes and share them instantly"
+  },
+  "Footer": {
+    "title": "Personal project"
+  },
+  "LinkForm": {
+    "titleForm": "Enter your link here:",
+    "placeholder": "https://yourlink.com/example"
+  },
+  "ShortenedLink": {
+    "subtitleOriginal": "Original link:",
+    "subtitleShortened": "Shortened link:"
+  },
+  "Language": {
+    "language": "Change language"
+  },
+  "DarkMode": {
+    "light": "Switch to light mode",
+    "dark": "Switch to dark mode",
+    "ariaTheme": "Change theme"
+  },
+  "Buttons": {
+    "shorten": "Get link",
+    "qr": "Generate QR",
+    "back": "Back",
+    "copy": "Copy",
+    "customize": "Customize",
+    "hide": "Hide",
+    "save": "Save as"
+  }
+}

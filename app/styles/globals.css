@@ -1,31 +1,27 @@
 @import "tailwindcss";
 
 :root {
-  --color-background: #fef5e2; /* Fondo general */
-  --color-background-page: #f8f9fa; /* Fondo general de la página */
-  --color-surface: #ffffff; /* Tarjetas, navbar */
-  --color-primary: #0457cd; /* Botones, títulos */
-  --color-secondary: #bccef8; /* Textos secundarios, detalles */
-  --color-accent: #cdfcf6; /* Botones secundarios, iconos  */
-  --color-highlight: #ffc857; /* Hover / resaltado */
-  --color-text-primary: #111827; /* Texto principal */
-  --color-text-secondary: #4e535d; /* Texto secundario */
-  --color-hover-secondary: #0457cd;
+  --color-background: #fdf5e6;
+  --color-surface: #ffffff;
+  --color-primary: #0457cd;
+  --color-secondary: #bccef8;
+  --color-accent: #0457cd;
+  --color-highlight: #ffc857;
+  --color-text-primary: #111827;
+  --color-text-secondary: #4e535d;
 
   color-scheme: light;
 }
 
 .dark {
-  --color-background: #1a1a2e; /* Fondo general */
-  --color-background-page: #1f1f2e; /* Fondo general de la página */
-  --color-surface: #16213e; /* Tarjetas, navbar */
-  --color-primary: #ffffff; /* Botones, títulos */
-  --color-secondary: #e94560; /* Textos secundarios, detalles */
-  --color-accent: #e94560; /* Botones secundarios, iconos  */
-  --color-highlight: #e94560; /* Hover / resaltado */
-  --color-text-primary: #ffffff; /* Texto principal */
-  --color-text-secondary: #d9546a; /* Texto secundario */
-  --color-hover-secondary: #e94560;
+  --color-background: #1a1a2e;
+  --color-surface: #16213e;
+  --color-primary: #ffffff;
+  --color-secondary: #e94560;
+  --color-accent: #d9546a;
+  --color-highlight: #e94560;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #d9546a;
 
   color-scheme: dark;
 }

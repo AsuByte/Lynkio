@@ -16,22 +16,6 @@ export const moonIcon = (
   </svg>
 );
 
-export const arrow = (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className="w-4 h-4"
-  >
-    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-    <path d="M8 9l4 -4l4 4" />
-    <path d="M16 15l-4 4l-4 -4" />
-  </svg>
-);
-
 export const flagES = (
   <svg viewBox="0 0 512 512" className="w-5 h-5">
     <path

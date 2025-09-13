@@ -1,0 +1,33 @@
+{
+  "Hero": {
+    "subtext": "Acorta, genera tus códigos QR y compártelos al instante"
+  },
+  "Footer": {
+    "title": "Proyecto personal"
+  },
+  "LinkForm": {
+    "titleForm": "Introduce tu enlace aquí:",
+    "placeholder": "https://tuenlace.com/ejemplo"
+  },
+  "ShortenedLink": {
+    "subtitleOriginal": "Enlace original:",
+    "subtitleShortened": "Enlace acortado:"
+  },
+  "Language": {
+    "language": "Cambiar idioma"
+  },
+  "DarkMode": {
+    "light": "Cambiar a modo claro",
+    "dark": "Cambiar a modo oscuro",
+    "ariaTheme": "Cambiar tema"
+  },
+  "Buttons": {
+    "shorten": "Obtener enlace",
+    "qr": "Generar QR",
+    "back": "Volver",
+    "copy": "Copiar",
+    "customize": "Personalizar",
+    "hide": "Ocultar",
+    "save": "Guardar como"
+  }
+}

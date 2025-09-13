@@ -3,16 +3,18 @@
 import { useTheme } from "@/app/hooks/useTheme";
 import { motion } from "framer-motion";
 import { sunIcon, moonIcon } from "@/app/icons/IconsPage";
+import { useI18n } from "../hooks/useI18n";
 
 const DarkMode = () => {
   const { dark, change } = useTheme();
+  const { translate } = useI18n();
 
   return (
     <button
       onClick={change}
-      aria-label="Cambiar tema"
+      aria-label={translate("DarkMode.ariaTheme")}
       className="p-2 cursor-pointer"
-      title={dark ? "Cambiar a modo claro" : "Cambiar a modo oscuro"}
+      title={dark ? translate("DarkMode.light") : translate("DarkMode.dark")}
     >
       <div className="relative w-6 h-6">
         <motion.div

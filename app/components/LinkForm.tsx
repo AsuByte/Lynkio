@@ -1,22 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import QRForm from "./QRForm";
-import { copy, Loading } from "../icons/IconsPage";
+import ShortenedLink from "@/app/components/ShortenedLink";
+import QRForm from "@/app/components/QRForm";
+import Button from "@/app/components/Button";
+import { Loading } from "@/app/icons/IconsPage";
+import { useI18n } from "../hooks/useI18n";
 
 const LinkForm = () => {
+  const { translate } = useI18n();
   const [url, setUrl] = useState("");
   const [shortenUrl, setShortenUrl] = useState("");
   const [showQR, setShowQR] = useState(false);
   const [error, setError] = useState("");
   const [loadingLink, setLoadingLink] = useState(false);
   const [loadingQR, setLoadingQR] = useState(false);
-
-  const handleCopy = () => {
-    if (!shortenUrl) return;
-    navigator.clipboard.writeText(shortenUrl);
-    alert("Enlace copiado");
-  };
 
   const handleReset = () => {
     setUrl("");
@@ -27,8 +25,8 @@ const LinkForm = () => {
     setLoadingQR(false);
   };
 
-  const handleLink = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleLink = async (e?: React.FormEvent | React.MouseEvent) => {
+    e?.preventDefault();
     setError("");
     if (!url) return;
 
@@ -58,7 +56,8 @@ const LinkForm = () => {
     }
   };
 
-  const handleGenerateQR = async () => {
+  const handleGenerateQR = async (e?: React.FormEvent | React.MouseEvent) => {
+    e?.preventDefault();
     if (!url) return;
     setError("");
     setLoadingQR(true);
@@ -89,7 +88,7 @@ const LinkForm = () => {
   };
 
   return (
-    <section className="w-full flex justify-center py-8 px-4">
+    <section className="w-full flex justify-center py-4 px-4">
       <div
         className="w-full max-w-5xl p-8 rounded-3xl
              bg-[var(--color-surface)]
@@ -99,13 +98,13 @@ const LinkForm = () => {
         {!shortenUrl && (
           <div className="flex flex-col items-center gap-6 w-full">
             <p className="font-medium text-[16px] text-[var(--color-primary)] text-center tracking-wide">
-              Introduce tu enlace aquí:
+              {translate("LinkForm.titleForm")}
             </p>
 
             <div className="flex w-full gap-4">
               <input
                 type="text"
-                placeholder="https://tuenlace.com/ejemplo"
+                placeholder={translate("LinkForm.placeholder")}
                 className="flex-1 px-4 py-2 rounded-lg 
                      border border-[var(--color-secondary)]
                      focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]
@@ -120,69 +119,25 @@ const LinkForm = () => {
             </div>
 
             <div className="flex gap-4 w-full items-stretch">
-              <button
-                onClick={handleLink}
-                className="w-1/2 px-4 h-12 bg-[var(--color-primary)] text-[var(--color-surface)] 
-                     font-medium rounded-lg hover:bg-[var(--color-highlight)]
-                     transition-colors duration-300 cursor-pointer flex items-center justify-center gap-2"
-              >
-                <span className="whitespace-nowrap flex items-center gap-2">
-                  Obtener enlace
-                </span>
+              <Button onClick={handleLink} width>
+                {translate("Buttons.shorten")}
                 {loadingLink && <Loading />}
-              </button>
+              </Button>
 
-              <button
-                onClick={handleGenerateQR}
-                className="w-1/2 px-4 h-12 bg-[var(--color-primary)] text-[var(--color-surface)]
-         font-medium rounded-lg hover:bg-[var(--color-highlight)]
-         transition-colors duration-300 cursor-pointer flex items-center justify-center gap-2"
-              >
-                <span className="whitespace-nowrap flex items-center gap-2">
-                  Generar QR
-                </span>
+              <Button onClick={handleGenerateQR} width>
+                {translate("Buttons.qr")}
                 {loadingQR && <Loading />}
-              </button>
+              </Button>
             </div>
           </div>
         )}
 
         {shortenUrl && !showQR && (
-          <div className="flex flex-col items-center gap-6 w-full">
-            <p className="text-[var(--color-primary)] font-medium text-center">
-              Enlace original:
-            </p>
-            <p className="text-black text-center break-all">{url}</p>
-
-            <p className="text-[var(--color-primary)] font-medium text-center">
-              Enlace acortado:
-            </p>
-            <p className="text-black font-medium text-center break-all">
-              {shortenUrl}
-            </p>
-
-            <div className="flex justify-center gap-4 w-full">
-              <button
-                onClick={handleCopy}
-                className="flex-1 px-4 py-2 bg-[var(--color-primary)] text-[var(--color-surface)] 
-                     rounded-lg hover:bg-[var(--color-highlight)]
-                     transition-colors duration-200 cursor-pointer"
-              >
-                Copiar
-              </button>
-
-              {(shortenUrl || showQR) && (
-                <button
-                  onClick={handleReset}
-                  className="flex-1 px-4 py-2 bg-[var(--color-primary)] text-[var(--color-surface)] 
-                     rounded-lg hover:bg-[var(--color-highlight)]
-                     transition-colors duration-200 cursor-pointer"
-                >
-                  Volver
-                </button>
-              )}
-            </div>
-          </div>
+          <ShortenedLink
+            url={url}
+            shortenUrl={shortenUrl}
+            onBack={handleReset}
+          />
         )}
 
         {showQR && <QRForm shortenUrl={shortenUrl} onBack={handleReset} />}

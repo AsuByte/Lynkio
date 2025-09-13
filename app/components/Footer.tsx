@@ -1,15 +1,24 @@
+"use client";
+
 import { github, linkedin } from "@/app/icons/IconsPage";
+import { useI18n } from "@/app/hooks/useI18n";
 
 const Footer = () => {
+  const { translate } = useI18n();
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="flex flex-col items-center justify-center py-6 bg-[var(--color-background)] mt-8">
-      <div className="text-center mb-2">
+    <footer className="flex flex-col items-center justify-center py-8 bg-[var(--color-background)] mt-12">
+      <div className="text-center mb-4">
         <p className="text-sm text-[var(--color-text-secondary)] font-medium">
-          Proyecto Personal
+          {translate("Footer.title")}
         </p>
+
         <p className="text-sm text-[var(--color-text-secondary)] mt-1">
-          <span className="text-[var(--color-text-primary)] font-medium">Christian Asuero Carrellán</span> ·{" "}
-          {new Date().getFullYear()}
+          <span className="text-[var(--color-text-primary)] font-medium">
+            Christian Asuero Carrellán
+          </span>{" "}
+          · {currentYear}
         </p>
       </div>
 
@@ -18,8 +27,9 @@ const Footer = () => {
           href="https://github.com/AsuByte"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[var(--color-text-primary)] hover:text-[var(--color-hover-secondary)] transition-colors duration-200"
-        >
+          className="text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors duration-200"
+          aria-label="Visitar perfil de Github"
+          >
           {github}
         </a>
 
@@ -27,7 +37,10 @@ const Footer = () => {
           href="https://www.linkedin.com/in/christian-asuero-carrell%C3%A1n-6592662aa/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[var(--color-text-primary)] hover:text-[var(--color-hover-secondary)] transition-colors duration-200"
+          className="text-[var(--color-text-primary)] 
+          hover:text-[var(--color-accent)] 
+          transition-colors duration-200"
+          aria-label="Visitar perfil de LinkedIn"
         >
           {linkedin}
         </a>

@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { QRCodeSVG } from "qrcode.react";
-import { iconsQR } from "../icons/IconsPage";
+import { iconsQR } from "@/app/icons/IconsPage";
 import { motion, AnimatePresence } from "framer-motion";
+import { useI18n } from "../hooks/useI18n";
 
 interface QRProps {
   shortenUrl: string;
@@ -9,6 +10,7 @@ interface QRProps {
 }
 
 const QRForm = ({ shortenUrl, onBack }: QRProps) => {
+  const { translate } = useI18n();
   const [qrColor, setQrColor] = useState("#000000");
   const [customize, setCustomize] = useState(false);
   const [icon, setIcon] = useState<string | null>(null);
@@ -49,7 +51,7 @@ const QRForm = ({ shortenUrl, onBack }: QRProps) => {
   return (
     <div className="flex flex-col items-center gap-4 w-full mt-4">
       <p className="text-[var(--color-primary)] font-medium text-center">
-        Enlace acortado:
+        {translate("ShortenedLink.subtitleShortened")}
       </p>
       <p className="text-[var(--color-text-primary)] font-medium text-center break-all">
         {shortenUrl}
@@ -80,14 +82,14 @@ const QRForm = ({ shortenUrl, onBack }: QRProps) => {
           className="mt-4 px-4 py-2 bg-[var(--color-primary)] text-[var(--color-surface)] rounded-lg hover:bg-[var(--color-highlight)] cursor-pointer transition-colors duration-200"
           onClick={() => setCustomize(!customize)}
         >
-          {customize ? "Ocultar" : "Personalizar"}
+          {customize ? translate("Buttons.hide") : translate("Buttons.customize")}
         </button>
 
         <button
           onClick={handleSave}
           className="mt-4 px-4 py-2 bg-[var(--color-primary)] text-[var(--color-surface)] rounded-lg hover:bg-[var(--color-highlight)] cursor-pointer transition-colors duration-200"
         >
-          Guardar como
+          {translate("Buttons.save")}
         </button>
 
         {onBack && (
@@ -97,7 +99,7 @@ const QRForm = ({ shortenUrl, onBack }: QRProps) => {
                      rounded-lg hover:bg-[var(--color-highlight)]
                      transition-colors duration-200 cursor-pointer"
           >
-            Volver
+            {translate("Buttons.back")}
           </button>
         )}
       </div>
