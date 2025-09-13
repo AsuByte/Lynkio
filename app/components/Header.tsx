@@ -8,9 +8,8 @@ import Language from "@/app/components/Language";
 const Header = () => {
   return (
     <header className="h-16 bg-[var(--color-background)] flex items-center px-6 relative">
-      <div className="flex-grow"></div> {/* Elemento flexible para ocupar el espacio */}
+      <div className="flex-grow"></div>
       
-      {/* Título centrado con posicionamiento absoluto */}
       <div className="absolute left-1/2 -translate-x-1/2">
         <Link
           href="/"
@@ -20,7 +19,6 @@ const Header = () => {
         </Link>
       </div>
 
-      {/* Botones a la derecha */}
       <div className="flex-shrink-0 flex items-center space-x-2 ml-auto">
         <Language />
         <DarkMode />

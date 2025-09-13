@@ -1,19 +1,38 @@
 "use client";
 
 import { useState } from "react";
-import QR from "./QRForm";
-import { copy } from "../icons/IconsPage";
+import QRForm from "./QRForm";
+import { copy, Loading } from "../icons/IconsPage";
 
 const LinkForm = () => {
   const [url, setUrl] = useState("");
   const [shortenUrl, setShortenUrl] = useState("");
   const [showQR, setShowQR] = useState(false);
   const [error, setError] = useState("");
+  const [loadingLink, setLoadingLink] = useState(false);
+  const [loadingQR, setLoadingQR] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleCopy = () => {
+    if (!shortenUrl) return;
+    navigator.clipboard.writeText(shortenUrl);
+    alert("Enlace copiado");
+  };
+
+  const handleReset = () => {
+    setUrl("");
+    setShortenUrl("");
+    setShowQR(false);
+    setError("");
+    setLoadingLink(false);
+    setLoadingQR(false);
+  };
+
+  const handleLink = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
     if (!url) return;
+
+    setLoadingLink(true);
 
     try {
       const res = await fetch("/api/shorten", {
@@ -29,6 +48,7 @@ const LinkForm = () => {
       if (!res.ok) {
         setError(data.error || "Error al obtener el enlace.");
         setShortenUrl("");
+        setLoadingLink(false);
         return;
       }
 
@@ -38,15 +58,10 @@ const LinkForm = () => {
     }
   };
 
-  const handleCopy = () => {
-    if (!shortenUrl) return;
-    navigator.clipboard.writeText(shortenUrl);
-    alert("Enlace copiado");
-  };
-
   const handleGenerateQR = async () => {
     if (!url) return;
     setError("");
+    setLoadingQR(true);
 
     try {
       let short = shortenUrl;
@@ -106,21 +121,27 @@ const LinkForm = () => {
 
             <div className="flex gap-4 w-full items-stretch">
               <button
-                onClick={handleSubmit}
-                className="w-1/2 px-4 py-3 bg-[var(--color-primary)] text-[var(--color-surface)] 
+                onClick={handleLink}
+                className="w-1/2 px-4 h-12 bg-[var(--color-primary)] text-[var(--color-surface)] 
                      font-medium rounded-lg hover:bg-[var(--color-highlight)]
-                     transition-colors duration-300 cursor-pointer"
+                     transition-colors duration-300 cursor-pointer flex items-center justify-center gap-2"
               >
-                Obtener enlace
+                <span className="whitespace-nowrap flex items-center gap-2">
+                  Obtener enlace
+                </span>
+                {loadingLink && <Loading />}
               </button>
 
               <button
                 onClick={handleGenerateQR}
-                className="w-1/2 px-4 py-3 bg-[var(--color-primary)] text-[var(--color-surface)]
+                className="w-1/2 px-4 h-12 bg-[var(--color-primary)] text-[var(--color-surface)]
          font-medium rounded-lg hover:bg-[var(--color-highlight)]
-         transition-colors duration-300 cursor-pointer"
+         transition-colors duration-300 cursor-pointer flex items-center justify-center gap-2"
               >
-                Generar QR
+                <span className="whitespace-nowrap flex items-center gap-2">
+                  Generar QR
+                </span>
+                {loadingQR && <Loading />}
               </button>
             </div>
           </div>
@@ -149,11 +170,22 @@ const LinkForm = () => {
               >
                 Copiar
               </button>
+
+              {(shortenUrl || showQR) && (
+                <button
+                  onClick={handleReset}
+                  className="flex-1 px-4 py-2 bg-[var(--color-primary)] text-[var(--color-surface)] 
+                     rounded-lg hover:bg-[var(--color-highlight)]
+                     transition-colors duration-200 cursor-pointer"
+                >
+                  Volver
+                </button>
+              )}
             </div>
           </div>
         )}
 
-        {showQR && <QR shortenUrl={shortenUrl} />}
+        {showQR && <QRForm shortenUrl={shortenUrl} onBack={handleReset} />}
       </div>
     </section>
   );
