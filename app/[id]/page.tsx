@@ -8,21 +8,17 @@ interface Params {
 const pageRedirect = async ({ params }: Params) => {
   const { id } = await params;
 
-  try {
-    const { data, error } = await supabase
-      .from("links")
-      .select("long_url")
-      .eq("id", id)
-      .single();
+  const { data, error } = await supabase
+    .from("links")
+    .select("long_url")
+    .eq("id", id)
+    .single();
 
-    if (error || !data?.long_url) {
-      return notFound();
-    }
-
-    redirect(data.long_url);
-  } catch {
+  if (error || !data?.long_url) {
     return notFound();
   }
+
+  redirect(data.long_url);
 };
 
 export default pageRedirect;
