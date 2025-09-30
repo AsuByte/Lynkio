@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
   try {
     const {
       url,
-      lang = "es",
+      lang = "en",
       userId = null,
     } = (await req.json()) as {
       url: string;
