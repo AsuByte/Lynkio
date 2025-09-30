@@ -109,7 +109,7 @@ const LinkForm = () => {
       }
 
       setShowQR(true);
-    } catch (err) {
+    } catch {
       setError(translate("Validations.shortenErrorUrl"));
       setTimeout(() => setError(""), 3000);
     }

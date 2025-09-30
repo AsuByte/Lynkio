@@ -50,7 +50,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       shorten: `${process.env.NEXT_PUBLIC_BASE_URL}/${short}`,
     });
-  } catch (_err) {
+  } catch {
     return NextResponse.json(
       { error: "Internal Server Error." },
       { status: 500 }

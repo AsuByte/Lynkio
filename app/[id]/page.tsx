@@ -20,7 +20,7 @@ const pageRedirect = async ({ params }: Params) => {
     }
 
     redirect(data.long_url);
-  } catch (err) {
+  } catch {
     return notFound();
   }
 };

@@ -1,10 +1,11 @@
 import { test, expect } from "@playwright/test";
 
+const BASE_URL = process.env.BASE_URL || "http://localhost:3000";
 const LINK_PLACEHOLDER = "https://yourlink.com/example";
 
 test.describe("Header", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/");
+    await page.goto(BASE_URL);
   });
 
   test.describe("Header", () => {
