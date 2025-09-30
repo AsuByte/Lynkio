@@ -13,7 +13,7 @@ interface I18nState {
 }
 
 export const useI18n = create<I18nState>((set, get) => ({
-  locale: "es",
+  locale: "en",
   translate: (key: string) => {
     const { locale } = get();
     return (

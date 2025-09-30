@@ -6,11 +6,6 @@ import { flagES, flagUS } from "@/app/icons/IconsPage";
 const Language = () => {
   const { locale, setLocale, translate } = useI18n();
 
-  const options = [
-    { code: "es", label: "ES", icon: flagES },
-    { code: "en", label: "EN", icon: flagUS },
-  ];
-
   const toggleLocale = () => {
     setLocale(locale === "es" ? "en" : "es");
   };
@@ -18,15 +13,14 @@ const Language = () => {
   return (
     <button
       onClick={toggleLocale}
-      className="flex items-center gap-1 p-1 rounded bg-[var(--color-surface)] 
-                 dark:bg-[var(--color-dark-secondary)] 
-                 hover:bg-[var(--color-accent)] cursor-pointer"
+      className="flex items-center gap-2 sm:gap-1 p-2 rounded-md cursor-pointer
+      text-[var(--color-text-primary)] hover:text-[var(--color-accent)]
+      transition-colors duration-200"
       title={translate("Language.language")}
+      aria-label={translate("Language.language")}
     >
-      <span className="w-5 h-5">{locale === "es" ? flagES : flagUS}</span>
-      <span className="text-sm font-medium text-[var(--color-text-primary)]">
-        {locale.toUpperCase()}
-      </span>
+      <span className="w-4 h-4 sm:w-5 sm:h-5">{locale === "es" ? flagES : flagUS}</span>
+      <span className="text-sm sm:text-base mt-1 sm:mt-0 font-medium">{locale.toUpperCase()}</span>
     </button>
   );
 };

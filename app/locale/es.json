@@ -1,9 +1,9 @@
 {
   "Hero": {
-    "subtext": "Acorta, genera tus códigos QR y compártelos al instante"
+    "subtext": "Acorta, genera tus códigos QR y compártelos al instante."
   },
   "Footer": {
-    "title": "Proyecto personal"
+    "title": "Tus enlaces, más cortos, más fáciles."
   },
   "LinkForm": {
     "titleForm": "Introduce tu enlace aquí:",
@@ -11,7 +11,10 @@
   },
   "ShortenedLink": {
     "subtitleOriginal": "Enlace original:",
-    "subtitleShortened": "Enlace acortado:"
+    "subtitleShortened": "Enlace acortado:",
+    "copy": "Enlace copiado",
+    "copyError": "No se pudo copiar.",
+    "copyFallback": "Copia este enlace manualmente."
   },
   "Language": {
     "language": "Cambiar idioma"
@@ -29,5 +32,24 @@
     "customize": "Personalizar",
     "hide": "Ocultar",
     "save": "Guardar como"
+  },
+  "CustomizeOptions": {
+    "color": "Selecciona color:",
+    "icon": "Escoge un icono:",
+    "option": "Ninguno"
+  },
+  "Validations": {
+    "emptyUrl": "La URL no puede estar vacía.",
+    "invalidUrl": "Introduce una URL válida.",
+    "validDomain": "Introduce un dominio válido (ej: google.com)",
+    "domainExtension": "Completa la URL con un dominio y extensión (ej: www.google.com)",
+    "extension": "Añade la extensión del dominio (ej: .com, .es)",
+    "shortenErrorUrl": "Error al acortar la URL.",
+    "internalError": "Error interno del servidor."
+  },
+  "NotFound": {
+    "message": "Enlace no encontrado.",
+    "description": "La página que buscas no existe o ya no está disponible.",
+    "backHome": "Volver"
   }
 }

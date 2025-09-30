@@ -2,9 +2,13 @@
 
 interface ButtonProps {
   children: React.ReactNode;
-  onClick?: (event?: React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLFormElement>) => void | Promise<void>;
+  onClick?: (
+    event?:
+      | React.MouseEvent<HTMLButtonElement>
+      | React.FormEvent<HTMLFormElement>
+  ) => void | Promise<void>;
   type?: "button" | "submit" | "reset";
-  variant?: "primary" | "secondary" | "danger";
+  variant?: "primary";
   width?: boolean;
   disable?: boolean;
   classNames?: string;
@@ -22,17 +26,14 @@ const Button: React.FC<ButtonProps> = ({
   const styles =
     "px-4 py-[9px] rounded-lg font-medium transition-colors duration-300 cursor-pointer flex items-center justify-center gap-2";
 
-  const variants: Record<typeof variant, string> = {
+  const variantStyles: Record<NonNullable<ButtonProps["variant"]>, string> = {
     primary:
       "bg-[var(--color-primary)] text-[var(--color-surface)] hover:bg-[var(--color-highlight)]",
-    secondary:
-      "bg-[var(--color-secondary)] text-[var(--color-text-primary)] hover:bg-opacity-80",
-    danger: "bg-red-600 text-white hover:bg-red-700",
   };
 
   const classes = [
     styles,
-    variants[variant],
+    variantStyles[variant],
     width ? "w-full" : "",
     disable ? "opacity-50 cursor-not-allowed" : "",
     classNames,

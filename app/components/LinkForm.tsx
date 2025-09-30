@@ -1,14 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import { Loading } from "@/app/icons/IconsPage";
+import { useI18n } from "@/app/hooks/useI18n";
+import { useTheme } from "@/app/hooks/useTheme";
+import { validateUrl } from "@/app/helpers/validations";
+import { useMessages } from "@/app/hooks/useMessages";
 import ShortenedLink from "@/app/components/ShortenedLink";
 import QRForm from "@/app/components/QRForm";
 import Button from "@/app/components/Button";
-import { Loading } from "@/app/icons/IconsPage";
-import { useI18n } from "../hooks/useI18n";
 
 const LinkForm = () => {
+  const { dark } = useTheme();
   const { translate } = useI18n();
+  const messages = useMessages();
   const [url, setUrl] = useState("");
   const [shortenUrl, setShortenUrl] = useState("");
   const [showQR, setShowQR] = useState(false);
@@ -19,8 +24,8 @@ const LinkForm = () => {
   const handleReset = () => {
     setUrl("");
     setShortenUrl("");
-    setShowQR(false);
     setError("");
+    setShowQR(false);
     setLoadingLink(false);
     setLoadingQR(false);
   };
@@ -28,38 +33,59 @@ const LinkForm = () => {
   const handleLink = async (e?: React.FormEvent | React.MouseEvent) => {
     e?.preventDefault();
     setError("");
-    if (!url) return;
+
+    const { valid: normalizedUrl, error: validationError } = validateUrl(
+      url,
+      messages
+    );
+
+    if (!normalizedUrl) {
+      setError(validationError);
+      setTimeout(() => setError(""), 3000);
+      return;
+    }
 
     setLoadingLink(true);
 
     try {
       const res = await fetch("/api/shorten", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ url, userId: null }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: normalizedUrl, userId: null }),
       });
 
       const data = await res.json();
 
       if (!res.ok) {
-        setError(data.error || "Error al obtener el enlace.");
+        setError(data.error || translate("Validations.shortenErrorUrl"));
         setShortenUrl("");
-        setLoadingLink(false);
+        setTimeout(() => setError(""), 3000);
         return;
       }
 
       setShortenUrl(data.shorten);
-    } catch (error) {
-      setError("Error al obtener el enlace.");
+      setUrl(normalizedUrl);
+    } catch {
+      setError(translate("Validations.internalError"));
+      setTimeout(() => setError(""), 3000);
     }
   };
 
   const handleGenerateQR = async (e?: React.FormEvent | React.MouseEvent) => {
     e?.preventDefault();
-    if (!url) return;
     setError("");
+
+    const { valid: normalizedUrl, error: validationError } = validateUrl(
+      url,
+      messages
+    );
+
+    if (!normalizedUrl) {
+      setError(validationError);
+      setTimeout(() => setError(""), 3000);
+      return;
+    }
+
     setLoadingQR(true);
 
     try {
@@ -73,7 +99,8 @@ const LinkForm = () => {
         const data = await res.json();
 
         if (!res.ok) {
-          setError(data.error || "Error al acortar el enlace.");
+          setError(data.error || translate("Validations.shortenErrorUrl"));
+          setTimeout(() => setError(""), 3000);
           return;
         }
 
@@ -83,50 +110,64 @@ const LinkForm = () => {
 
       setShowQR(true);
     } catch (err) {
-      setError("Error al acortar el enlace.");
+      setError(translate("Validations.shortenErrorUrl"));
+      setTimeout(() => setError(""), 3000);
     }
   };
 
   return (
     <section className="w-full flex justify-center py-4 px-4">
-      <div
-        className="w-full max-w-5xl p-8 rounded-3xl
-             bg-[var(--color-surface)]
-             border border-[var(--color-secondary)]
-             shadow-sm"
-      >
+       <div className="w-full max-w-3xl sm:max-w-4xl lg:max-w-5xl p-6 sm:p-8 rounded-3xl
+                      bg-[var(--color-surface)] border border-[var(--color-secondary)]
+                      shadow-md transition-all duration-300">
         {!shortenUrl && (
-          <div className="flex flex-col items-center gap-6 w-full">
-            <p className="font-medium text-[16px] text-[var(--color-primary)] text-center tracking-wide">
+          <div className="flex flex-col items-center gap-4 sm:gap-6 w-full">
+            <p className="font-medium text-sm sm:text-lg text-[var(--color-primary)] text-center tracking-wide">
               {translate("LinkForm.titleForm")}
             </p>
 
-            <div className="flex w-full gap-4">
+            <div className="flex w-full flex-col items-center">
               <input
                 type="text"
                 placeholder={translate("LinkForm.placeholder")}
-                className="flex-1 px-4 py-2 rounded-lg 
-                     border border-[var(--color-secondary)]
-                     focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]
-                     focus:border-[var(--color-primary)]
-                     bg-[var(--color-background-page)] dark:bg-[var(--color-surface)]
-                     hover:bg-[var(--color-background)]
-                     text-[var(--color-text-primary)]
-                     text-base lg:text-lg transition duration-300"
+                className={`w-full max-w-md px-4 py-2 rounded-lg border 
+                focus:outline-none focus:ring-2 
+                text-[var(--color-text-primary)] text-base sm:text-lg transition duration-300
+                ${
+                  error
+                    ? dark
+                      ? "border-[var(--color-errors)] focus:ring-[var(--color-errors)]"
+                      : "border-[var(--color-errors)] focus:ring-[var(--color-errors)]"
+                    : "border-[var(--color-secondary)] focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)]"
+                }
+                bg-[var(--color-surface)] hover:bg-[var(--color-background-hover)]`}
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
               />
+
+              <p
+                className={`text-sm max-w-96 break-words font-medium text-center
+                transition-opacity duration-300 mt-2
+                ${error ? "opacity-100" : "opacity-0"}
+                ${
+                  dark
+                    ? "text-[var(--color-errors)]"
+                    : "text-[var(--color-errors)]"
+                }`}
+              >
+                {error || " "}
+              </p>
             </div>
 
-            <div className="flex gap-4 w-full items-stretch">
+            <div className="flex flex-col sm:flex-row gap-4 w-full items-stretch">
               <Button onClick={handleLink} width>
-                {translate("Buttons.shorten")}
                 {loadingLink && <Loading />}
+                {translate("Buttons.shorten")}
               </Button>
 
               <Button onClick={handleGenerateQR} width>
-                {translate("Buttons.qr")}
                 {loadingQR && <Loading />}
+                {translate("Buttons.qr")}
               </Button>
             </div>
           </div>

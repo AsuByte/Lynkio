@@ -1,9 +1,9 @@
 {
   "Hero": {
-    "subtext": "Shorten, generate your QR codes and share them instantly"
+    "subtext": "Shorten, generate your QR codes and share them instantly."
   },
   "Footer": {
-    "title": "Personal project"
+    "title": "Your links, shorter, easier."
   },
   "LinkForm": {
     "titleForm": "Enter your link here:",
@@ -11,7 +11,10 @@
   },
   "ShortenedLink": {
     "subtitleOriginal": "Original link:",
-    "subtitleShortened": "Shortened link:"
+    "subtitleShortened": "Shortened link:",
+    "copy": "Link copied",
+    "copyError": "Can't no copy.",
+    "copyFallback": "Copy this link manually."
   },
   "Language": {
     "language": "Change language"
@@ -29,5 +32,24 @@
     "customize": "Customize",
     "hide": "Hide",
     "save": "Save as"
+  },
+  "CustomizeOptions": {
+    "color": "Select a color:",
+    "icon": "Choose an icon:",
+    "option": "None"
+  },
+  "Validations": {
+    "emptyUrl": "The URL cannot be empty.",
+    "invalidUrl": "Please enter a valid URL.",
+    "validDomain": "Enter a valid domain (e.g. google.com)",
+    "domainExtension": "Complete the URL with a domain and extension (e.g. www.google.com)",
+    "extension": "Add the domain extension (e.g. .com, .es)",
+    "shortenErrorUrl": "Error shortening URL.",
+    "internalError": "Internal Server Error."
+  },
+  "NotFound": {
+    "message": "Link not found.",
+    "description": "The page you are looking for does not exist or is no longer available.",
+    "backHome": "Back"
   }
 }

@@ -1,5 +1,5 @@
-import { redirect } from "next/navigation";
-import { supabase } from "../services/supabase";
+import { redirect, notFound } from "next/navigation";
+import { supabase } from "@/app/services/supabase";
 
 interface Params {
   params: Promise<{ id: string }>;
@@ -8,17 +8,21 @@ interface Params {
 const pageRedirect = async ({ params }: Params) => {
   const { id } = await params;
 
-  const { data, error } = await supabase
-    .from("links")
-    .select("long_url")
-    .eq("id", id)
-    .single();
+  try {
+    const { data, error } = await supabase
+      .from("links")
+      .select("long_url")
+      .eq("id", id)
+      .single();
 
-  if (error || !data) {
-    return <p>Enlace no encontrado.</p>;
+    if (error || !data?.long_url) {
+      return notFound();
+    }
+
+    redirect(data.long_url);
+  } catch (err) {
+    return notFound();
   }
-
-  redirect(data.long_url);
 };
 
 export default pageRedirect;

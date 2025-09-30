@@ -1,13 +1,29 @@
 "use client";
 
-import { useTheme } from "@/app/hooks/useTheme";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useTheme } from "@/app/hooks/useTheme";
 import { sunIcon, moonIcon } from "@/app/icons/IconsPage";
-import { useI18n } from "../hooks/useI18n";
+import { useI18n } from "@/app/hooks/useI18n";
 
 const DarkMode = () => {
-  const { dark, change } = useTheme();
+  const { dark, change, setTheme } = useTheme();
   const { translate } = useI18n();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    const stored = localStorage.getItem("theme");
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    const initialDark = stored ? stored === "dark" : prefersDark;
+
+    document.documentElement.classList.toggle("dark", initialDark);
+    setTheme(initialDark);
+    setMounted(true);
+  }, [setTheme]);
+
+  if (!mounted) return null;
 
   return (
     <button

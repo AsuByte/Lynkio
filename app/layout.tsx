@@ -7,20 +7,21 @@ import "@/app/styles/globals.css";
 export const metadata: Metadata = {
   title: "Lynkio",
   description:
-    "Acortador de enlaces con visualizaciones de estadísticas básicas y creación de códigos QR.",
+    "Link shortener with basic statistics visualizations and QR code creation.",
 };
 
 export default function RootLayout({
-  children
+  children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
-      <body className={`${inter.className}
-      bg-[var(--color-background-page)] flex-col min-h-screen`}>
+    <html lang="en">
+      <body
+        className={`${inter.className} bg-[var(--color-background-page)] flex flex-col min-h-screen`}
+      >
         <Header />
-        <main className="flex-grow flex justify-center items-center">
+        <main className="flex-1 flex flex-col justify-center items-center w-full px-4">
           {children}
         </main>
         <Footer />

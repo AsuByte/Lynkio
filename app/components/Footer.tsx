@@ -8,13 +8,13 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="flex flex-col items-center justify-center py-8 bg-[var(--color-background)] mt-12">
-      <div className="text-center mb-4">
-        <p className="text-sm text-[var(--color-text-secondary)] font-medium">
+    <footer className="flex flex-col items-center justify-center py-4 sm:py-6 bg-[var(--color-background)] px-4">
+      <div className="text-center mb-3 sm:mb-4 max-w-md">
+        <p className="text-sm sm:text-base text-[var(--color-text-secondary)] font-medium">
           {translate("Footer.title")}
         </p>
 
-        <p className="text-sm text-[var(--color-text-secondary)] mt-1">
+        <p className="text-sm sm:text-base text-[var(--color-text-secondary)] mt-1 sm:mt-2">
           <span className="text-[var(--color-text-primary)] font-medium">
             Christian Asuero Carrellán
           </span>{" "}
@@ -22,14 +22,14 @@ const Footer = () => {
         </p>
       </div>
 
-      <div className="flex items-center gap-6">
+      <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4">
         <a
           href="https://github.com/AsuByte"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors duration-200"
-          aria-label="Visitar perfil de Github"
-          >
+          aria-label="Visit Github profile"
+        >
           {github}
         </a>
 
@@ -37,10 +37,8 @@ const Footer = () => {
           href="https://www.linkedin.com/in/christian-asuero-carrell%C3%A1n-6592662aa/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[var(--color-text-primary)] 
-          hover:text-[var(--color-accent)] 
-          transition-colors duration-200"
-          aria-label="Visitar perfil de LinkedIn"
+          className="text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors duration-200"
+          aria-label="Visit LinkedIn profile"
         >
           {linkedin}
         </a>
