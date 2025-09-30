@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useI18n } from "@/app/hooks/useI18n";
 
-const notFound = () => {
+const NotFound = () => {
   const { translate } = useI18n();
 
   return (
@@ -30,4 +30,4 @@ const notFound = () => {
   );
 };
 
-export default notFound;
+export default NotFound;

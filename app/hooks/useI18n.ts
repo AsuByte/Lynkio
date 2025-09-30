@@ -16,11 +16,13 @@ export const useI18n = create<I18nState>((set, get) => ({
   locale: "en",
   translate: (key: string) => {
     const { locale } = get();
-    return (
-      key
-        .split(".")
-        .reduce((acc: any, part) => acc?.[part], messages[locale]) ?? key
-    );
+    const result = key.split(".").reduce((acc: unknown, part) => {
+      if (acc && typeof acc === "object" && part in acc) {
+        return (acc as Record<string, unknown>)[part];
+      }
+      return undefined;
+    }, messages[locale]);
+    return typeof result === "string" ? result : key;
   },
   setLocale: (locale) => set({ locale }),
 }));

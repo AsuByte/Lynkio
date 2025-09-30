@@ -1,5 +1,4 @@
 import { create } from "zustand";
-import { useEffect } from "react";
 
 interface Theme {
   dark: boolean;
@@ -20,18 +19,3 @@ export const useTheme = create<Theme>((set) => ({
     }),
   setTheme: (dark) => set(() => ({ dark })),
 }));
-
-export const useInitTheme = () => {
-  const setTheme = useTheme((s) => s.setTheme);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    const initialDark = stored ? stored === "dark" : prefersDark;
-
-    document.documentElement.classList.toggle("dark", initialDark);
-    setTheme(initialDark);
-  }, [setTheme]);
-};
