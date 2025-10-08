@@ -17,5 +17,11 @@ export const useTheme = create<Theme>((set) => ({
       }
       return { dark: newTheme };
     }),
-  setTheme: (dark) => set(() => ({ dark })),
+  setTheme: (dark) => {
+    if (typeof document !== "undefined") {
+      document.documentElement.classList.toggle("dark", dark);
+      localStorage.setItem("theme", dark ? "dark" : "light");
+    }
+    set(() => ({ dark }));
+  },
 }));

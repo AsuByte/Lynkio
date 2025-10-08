@@ -2,11 +2,15 @@ import { NextRequest, NextResponse } from "next/server";
 import { supabase } from "@/app/services/supabase";
 import { customAlphabet } from "nanoid";
 import { urlSchema } from "@/app/helpers/validations";
+import generateUrl from "@/app/helpers/generateUrl";
 import es from "@/app/locale/es.json";
 import en from "@/app/locale/en.json";
 
 const messages = { es, en };
-const nanoid = customAlphabet("1234567890abcdefghijklmnopqrstuvwxyz", 8);
+const nanoidRandom = customAlphabet(
+  "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  3
+);
 
 export async function POST(req: NextRequest) {
   try {
@@ -31,12 +35,22 @@ export async function POST(req: NextRequest) {
 
     const normalizedUrl = parsed.data;
 
-    const short = nanoid();
+    let link = generateUrl(normalizedUrl);
+
+    let { data: existing } = await supabase
+      .from("links")
+      .select("id")
+      .eq("id", link)
+      .single();
+
+    if (existing) {
+      link += nanoidRandom();
+    }
 
     const { error } = await supabase
       .from("links")
       .insert({
-        id: short,
+        id: link,
         long_url: normalizedUrl,
         user_id: userId ?? null,
       })
@@ -48,7 +62,7 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({
-      shorten: `${process.env.NEXT_PUBLIC_BASE_URL}/${short}`,
+      shorten: `${process.env.NEXT_PUBLIC_BASE_URL}/${link}`,
     });
   } catch {
     return NextResponse.json(

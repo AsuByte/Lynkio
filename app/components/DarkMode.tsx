@@ -17,8 +17,6 @@ const DarkMode = () => {
       "(prefers-color-scheme: dark)"
     ).matches;
     const initialDark = stored ? stored === "dark" : prefersDark;
-
-    document.documentElement.classList.toggle("dark", initialDark);
     setTheme(initialDark);
     setMounted(true);
   }, [setTheme]);
