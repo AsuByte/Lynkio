@@ -62,7 +62,7 @@ export async function POST(req: NextRequest) {
     }
 
     return NextResponse.json({
-      shorten: `${process.env.NEXT_PUBLIC_BASE_URL}${link}`,
+      shorten: `${process.env.NEXT_PUBLIC_BASE_URL}/${link}`,
     });
   } catch {
     return NextResponse.json(
