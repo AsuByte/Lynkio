@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
 
     let link = generateUrl(normalizedUrl);
 
-    let { data: existing } = await supabase
+    const { data: existing } = await supabase
       .from("links")
       .select("id")
       .eq("id", link)
