@@ -9,6 +9,3 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
-    package-manager: "pnpm"
-    versioning-strategy: "increase"
-    open-pull-requests-limit: 10
