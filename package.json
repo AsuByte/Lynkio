@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@commitlint/cz-commitlint": "^19.8.1",
-    "@playwright/test": "^1.55.1",
+    "@playwright/test": "^1.57.0",
     "@tailwindcss/postcss": "^4.1.13",
     "@types/node": "^24.6.0",
     "@types/react": "^19.1.16",
