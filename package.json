@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.58.0",
-    "framer-motion": "^12.23.22",
+    "framer-motion": "^12.23.25",
     "nanoid": "^5.1.6",
     "next": "15.5.7",
     "qrcode.react": "^4.2.0",
