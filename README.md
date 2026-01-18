@@ -1,6 +1,8 @@
 # Lynkio
 
-**Lynkio** es un moderno acortador de URL y generador de códigos QR desarrollado con **Next.js**, **Tailwind CSS** y **Supabase**. Permite a los usuarios acortar enlaces rápidamente, copiarlos y generar códigos QR personalizables, todo con una interfaz clara y responsiva.
+Acortador de URL y generador de códigos QR desarrollado con **Next.js**, **Tailwind CSS** y **Supabase**. Permite a los usuarios acortar enlaces rápidamente, copiarlos y generar códigos QR personalizables, todo con una interfaz clara y responsiva.
+
+![Image](https://github.com/user-attachments/assets/7de9a0f7-76d2-41cc-8bbe-bb72f863b0da)
 
 ---
 
