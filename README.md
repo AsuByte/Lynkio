@@ -1,38 +1,38 @@
 # Lynkio
 
-**Lynkio** is a modern URL shortener and QR code generator built with **Next.js**, **Tailwind CSS**, and **Supabase**. It allows users to quickly shorten links, copy them, and generate customizable QR codes, all with a clean, responsive interface.
+**Lynkio** es un moderno acortador de URL y generador de códigos QR desarrollado con **Next.js**, **Tailwind CSS** y **Supabase**. Permite a los usuarios acortar enlaces rápidamente, copiarlos y generar códigos QR personalizables, todo con una interfaz clara y responsiva.
 
 ---
 
-## Features
+## Características
 
-- Shorten URLs instantly.
-- Copy shortened links to clipboard with one click.
-- Generate QR codes for any URL.
-- Customize QR codes with colors.
-- Light/Dark theme support.
-- Responsive design for mobile and desktop.
-- Simple backend powered by Supabase (PostgreSQL).
+- Acorta URLs al instante.
+- Copia enlaces acortados al portapapeles con un solo clic.
+- Genera códigos QR para cualquier URL.
+- Personaliza códigos QR con colores.
+- Compatible con temas claros/oscuros.
+- Diseño responsivo para dispositivos móviles y de escritorio.
+- Backend simple con tecnología de Supabase (PostgreSQL).
 
 ---
 
-## Tech Stack
+## Pila tecnológica
 
 - **Frontend:** Next.js, React, Tailwind CSS
 - **Backend:** Supabase
-- **Testing:** Playwright for end-to-end tests
-- **Deployment:** Vercel
+- **Pruebas:** Playwright para pruebas integrales
+- **Implementación:** Vercel
 
 ---
 
-## Getting Started
+## Primeros pasos
 
-### Requirements
+### Requisitos
 
-- Node.js (LTS recommended)
+- Node.js (se recomienda LTS)
 - pnpm
 
-### Installation
+### Instalación
 
 ```bash
 git clone https://github.com/yourusername/lynkio.git
@@ -40,25 +40,25 @@ cd lynkio
 pnpm install
 ```
 
-### Running locally 
+### Ejecución local
 
 ```bash
 pnpm dev
 ```
 
-- Visit http://localhost:3000 in your browser.
+- Visita http://localhost:3000 en tu navegador.
 
-### Running Tests
+### Ejecución de pruebas
 
-- Playwright tests are included:
+- Se incluyen las pruebas de Playwright:
 
 ```bash
 pnpm exec playwright test
 ```
 
-## Environment Variables
+## Variables de entorno
 
-- Create a .env file at the root of the project with the following variables:
+- Cree un archivo .env en la raíz del proyecto con las siguientes variables:
 
 ```env
 NEXT_PUBLIC_BASE_URL=http://localhost:3000
