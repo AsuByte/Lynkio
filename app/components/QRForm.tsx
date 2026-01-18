@@ -71,10 +71,10 @@ const QRForm = ({ shortenUrl, onBack }: QRProps) => {
 
   return (
     <div className="flex flex-col items-center w-full gap-6 px-4 sm:px-0">
-      <p className="text-[var(--color-accent)] font-bold text-center">
+      <p className="text-(--color-accent) font-bold text-center">
         {translate("ShortenedLink.subtitleShortened")}
       </p>
-      <p className="text-[var(--color-text-primary)] font-medium text-center break-all max-w-full sm:max-w-md">
+      <p className="text-(--color-text-primary) font-medium text-center break-all max-w-full sm:max-w-md">
         {shortenUrl}
       </p>
 
@@ -101,8 +101,8 @@ const QRForm = ({ shortenUrl, onBack }: QRProps) => {
 
       <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full max-w-md mt-4">
         <button
-          className="flex-1 px-4 py-2 bg-[var(--color-primary)] text-[var(--color-surface)]
-                     rounded-lg hover:bg-[var(--color-highlight)] cursor-pointer transition-colors duration-200"
+          className="flex-1 px-4 py-2 bg-(--color-primary) text-(--color-surface)
+                     rounded-lg hover:bg-(--color-highlight) cursor-pointer transition-colors duration-200"
           onClick={() => setCustomize(!customize)}
         >
           {customize
@@ -112,8 +112,8 @@ const QRForm = ({ shortenUrl, onBack }: QRProps) => {
 
         <button
           onClick={handleSave}
-          className="flex-1 px-4 py-2 bg-[var(--color-primary)] text-[var(--color-surface)]
-                     rounded-lg hover:bg-[var(--color-highlight)] cursor-pointer transition-colors duration-200"
+          className="flex-1 px-4 py-2 bg-(--color-primary) text-(--color-surface)
+                     rounded-lg hover:bg-(--color-highlight) cursor-pointer transition-colors duration-200"
         >
           {translate("Buttons.save")}
         </button>
@@ -121,8 +121,8 @@ const QRForm = ({ shortenUrl, onBack }: QRProps) => {
         {onBack && (
           <button
             onClick={onBack}
-            className="flex-1 px-4 py-2 bg-[var(--color-primary)] text-[var(--color-surface)]
-                       rounded-lg hover:bg-[var(--color-highlight)] cursor-pointer transition-colors duration-200"
+            className="flex-1 px-4 py-2 bg-(--color-primary) text-(--color-surface)
+                       rounded-lg hover:bg-(--color-highlight) cursor-pointer transition-colors duration-200"
           >
             {translate("Buttons.back")}
           </button>
@@ -140,7 +140,7 @@ const QRForm = ({ shortenUrl, onBack }: QRProps) => {
             className="flex flex-col w-full gap-4 mt-4 items-start sm:max-w-md"
           >
             <div className="flex items-center gap-4 w-full">
-              <label className="text-[var(--color-accent)] font-bold">
+              <label className="text-(--color-accent) font-bold">
                 {translate("CustomizeOptions.color")}
               </label>
               <input
@@ -152,13 +152,13 @@ const QRForm = ({ shortenUrl, onBack }: QRProps) => {
             </div>
 
             <div className="flex items-center gap-4 w-full">
-              <label className="text-[var(--color-accent)] font-bold">
+              <label className="text-(--color-accent) font-bold">
                 {translate("CustomizeOptions.icon")}
               </label>
               <select
                 value={icon || ""}
                 onChange={(e) => setIcon(e.target.value || null)}
-                className="flex-1 border border-gray-300 rounded px-2 py-1 bg-[var(--color-surface)]"
+                className="flex-1 border border-gray-300 rounded px-2 py-1 bg-(--color-surface)"
               >
                 <option value="">{translate("CustomizeOptions.option")}</option>
                 {iconsQR.map((i) => (

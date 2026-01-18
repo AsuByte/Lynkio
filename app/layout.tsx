@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} bg-[var(--color-background-page)] flex flex-col min-h-screen`}
+        className={`${inter.className} bg-(--color-background-page) flex flex-col min-h-screen`}
       >
         <Header />
         <main className="flex-1 flex flex-col justify-center items-center w-full px-4">

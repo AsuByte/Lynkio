@@ -40,17 +40,17 @@ const ShortenedLink = ({ url, shortenUrl, onBack }: ShortenedLinkProps) => {
 
   return (
     <div className="flex flex-col items-center gap-6 w-full px-4 sm:px-0">
-      <p className="text-[var(--color-accent)] font-bold text-center">
+      <p className="text-(--color-accent) font-bold text-center">
         {translate("ShortenedLink.subtitleOriginal")}
       </p>
-      <p className="text-[var(--color-text-primary)] text-center break-all font-medium max-w-full sm:max-w-md">
+      <p className="text-(--color-text-primary) text-center break-all font-medium max-w-full sm:max-w-md">
         {url}
       </p>
 
-      <p className="text-[var(--color-accent)] font-bold text-center">
+      <p className="text-(--color-accent) font-bold text-center">
         {translate("ShortenedLink.subtitleShortened")}
       </p>
-      <p className="text-[var(--color-text-primary)] font-medium text-center break-all max-w-full sm:max-w-md">
+      <p className="text-(--color-text-primary) font-medium text-center break-all max-w-full sm:max-w-md">
         {shortenUrl}
       </p>
 
@@ -58,8 +58,8 @@ const ShortenedLink = ({ url, shortenUrl, onBack }: ShortenedLinkProps) => {
         <div className="flex-1 relative flex flex-col">
           <button
             onClick={handleCopy}
-            className="w-full px-4 py-2 bg-[var(--color-primary)] text-[var(--color-surface)] 
-                 rounded-lg hover:bg-[var(--color-highlight)]
+            className="w-full px-4 py-2 bg-(--color-primary) text-(--color-surface) 
+                 rounded-lg hover:bg-(--color-highlight)
                  transition-colors duration-200 cursor-pointer select-none"
           >
             {translate("Buttons.copy")}
@@ -84,8 +84,8 @@ const ShortenedLink = ({ url, shortenUrl, onBack }: ShortenedLinkProps) => {
           <div className="flex-1">
             <button
               onClick={onBack}
-              className="w-full px-4 py-2 bg-[var(--color-primary)] text-[var(--color-surface)] 
-                   rounded-lg hover:bg-[var(--color-highlight)]
+              className="w-full px-4 py-2 bg-(--color-primary) text-(--color-surface) 
+                   rounded-lg hover:bg-(--color-highlight)
                    transition-colors duration-200 cursor-pointer select-none"
             >
               {translate("Buttons.back")}

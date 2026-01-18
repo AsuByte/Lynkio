@@ -14,7 +14,7 @@ const Language = () => {
     <button
       onClick={toggleLocale}
       className="flex items-center gap-2 sm:gap-1 p-2 rounded-md cursor-pointer
-      text-[var(--color-text-primary)] hover:text-[var(--color-accent)]
+      text-(--color-text-primary) hover:text-(--color-accent)
       transition-colors duration-200"
       title={translate("Language.language")}
       aria-label={translate("Language.language")}

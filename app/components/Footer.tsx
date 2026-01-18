@@ -8,14 +8,14 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="flex flex-col items-center justify-center py-4 sm:py-6 bg-[var(--color-background)] px-4">
+    <footer className="flex flex-col items-center justify-center py-4 sm:py-6 bg-(--color-background) px-4">
       <div className="text-center mb-3 sm:mb-4 max-w-md">
-        <p className="text-sm sm:text-base text-[var(--color-text-secondary)] font-medium">
+        <p className="text-sm sm:text-base text-(--color-text-secondary) font-medium">
           {translate("Footer.title")}
         </p>
 
-        <p className="text-sm sm:text-base text-[var(--color-text-secondary)] mt-1 sm:mt-2">
-          <span className="text-[var(--color-text-primary)] font-medium">
+        <p className="text-sm sm:text-base text-(--color-text-secondary) mt-1 sm:mt-2">
+          <span className="text-(--color-text-primary) font-medium">
             Christian Asuero Carrellán
           </span>{" "}
           · {currentYear}
@@ -27,7 +27,7 @@ const Footer = () => {
           href="https://github.com/AsuByte"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors duration-200"
+          className="text-(--color-text-primary) hover:text-(--color-accent) transition-colors duration-200"
           aria-label="Visit Github profile"
         >
           {github}
@@ -37,7 +37,7 @@ const Footer = () => {
           href="https://www.linkedin.com/in/christian-asuero-carrell%C3%A1n-6592662aa/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-[var(--color-text-primary)] hover:text-[var(--color-accent)] transition-colors duration-200"
+          className="text-(--color-text-primary) hover:text-(--color-accent) transition-colors duration-200"
           aria-label="Visit LinkedIn profile"
         >
           {linkedin}

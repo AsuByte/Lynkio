@@ -11,7 +11,7 @@ const Hero = () => {
       <h2
         className={`${luckiest.className} 
       text-xl sm:text-xl md:text-2xl lg:text-2xl
-      font-semibold text-[var(--color-primary)] 
+      font-semibold text-(--color-primary) 
       leading-snug max-w-xs sm:max-w-sm md:max-w-md`}
       >
         {translate("Hero.subtext")}

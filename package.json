@@ -1,6 +1,7 @@
 {
   "name": "lynkio",
   "version": "0.1.0",
+  "description": "Link shortener with basic statistics visualizations and QR code creation.",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -9,33 +10,33 @@
     "cz": "cz"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.58.0",
-    "framer-motion": "^12.23.22",
+    "@supabase/supabase-js": "^2.81.0",
+    "framer-motion": "^12.23.24",
     "nanoid": "^5.1.6",
     "next": "15.5.3",
     "qrcode.react": "^4.2.0",
     "react": "19.1.1",
     "react-dom": "19.1.1",
-    "zod": "^4.1.11",
+    "zod": "^4.1.12",
     "zustand": "^5.0.8"
   },
   "devDependencies": {
     "@commitlint/cz-commitlint": "^19.8.1",
-    "@playwright/test": "^1.55.1",
-    "@tailwindcss/postcss": "^4.1.13",
-    "@types/node": "^24.6.0",
-    "@types/react": "^19.1.16",
-    "@types/react-dom": "^19.1.9",
-    "autoprefixer": "^10.4.21",
+    "@playwright/test": "^1.56.1",
+    "@tailwindcss/postcss": "^4.1.17",
+    "@types/node": "^24.10.0",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "autoprefixer": "^10.4.22",
     "commitizen": "^4.3.1",
-    "eslint": "^9.36.0",
+    "eslint": "^9.39.1",
     "eslint-config-next": "15.5.3",
     "inquirer": "^9.3.8",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.13",
-    "typescript": "^5.9.2"
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5.9.3"
   },
-  "packageManager": "pnpm@10.17.1+sha512.17c560fca4867ae9473a3899ad84a88334914f379be46d455cbf92e5cf4b39d34985d452d2583baf19967fa76cb5c17bc9e245529d0b98745721aa7200ecaf7a",
+  "packageManager": "pnpm@10.21.0+sha512.da3337267e400fdd3d479a6c68079ac6db01d8ca4f67572083e722775a796788a7a9956613749e000fac20d424b594f7a791a5f4e2e13581c5ef947f26968a40",
   "config": {
     "commitizen": {
       "path": "@commitlint/cz-commitlint"

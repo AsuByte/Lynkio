@@ -13,7 +13,7 @@ interface I18nState {
 }
 
 export const useI18n = create<I18nState>((set, get) => ({
-  locale: "en",
+  locale: "es",
   translate: (key: string) => {
     const { locale } = get();
     const result = key.split(".").reduce((acc: unknown, part) => {

@@ -118,11 +118,11 @@ const LinkForm = () => {
   return (
     <section className="w-full flex justify-center py-4 px-4">
        <div className="w-full max-w-3xl sm:max-w-4xl lg:max-w-5xl p-6 sm:p-8 rounded-3xl
-                      bg-[var(--color-surface)] border border-[var(--color-secondary)]
+                      bg-(--color-surface) border border-(--color-secondary)
                       shadow-md transition-all duration-300">
         {!shortenUrl && (
           <div className="flex flex-col items-center gap-4 sm:gap-6 w-full">
-            <p className="font-medium text-sm sm:text-lg text-[var(--color-primary)] text-center tracking-wide">
+            <p className="font-medium text-sm sm:text-lg text-(--color-primary) text-center tracking-wide">
               {translate("LinkForm.titleForm")}
             </p>
 
@@ -132,27 +132,27 @@ const LinkForm = () => {
                 placeholder={translate("LinkForm.placeholder")}
                 className={`w-full max-w-md px-4 py-2 rounded-lg border 
                 focus:outline-none focus:ring-2 
-                text-[var(--color-text-primary)] text-base sm:text-lg transition duration-300
+                text-(--color-text-primary) text-base sm:text-lg transition duration-300
                 ${
                   error
                     ? dark
-                      ? "border-[var(--color-errors)] focus:ring-[var(--color-errors)]"
-                      : "border-[var(--color-errors)] focus:ring-[var(--color-errors)]"
-                    : "border-[var(--color-secondary)] focus:ring-[var(--color-primary)] focus:border-[var(--color-primary)]"
+                      ? "border-(--color-errors) focus:ring-(--color-errors)"
+                      : "border-(--color-errors) focus:ring-(--color-errors)"
+                    : "border-(--color-secondary) focus:ring-(--color-primary) focus:border-(--color-primary)"
                 }
-                bg-[var(--color-surface)] hover:bg-[var(--color-background-hover)]`}
+                bg-(--color-surface) hover:bg-(--color-background-hover)`}
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
               />
 
               <p
-                className={`text-sm max-w-96 break-words font-medium text-center
+                className={`text-sm max-w-96 wrap-break-word font-medium text-center
                 transition-opacity duration-300 mt-2
                 ${error ? "opacity-100" : "opacity-0"}
                 ${
                   dark
-                    ? "text-[var(--color-errors)]"
-                    : "text-[var(--color-errors)]"
+                    ? "text-(--color-errors)"
+                    : "text-(--color-errors)"
                 }`}
               >
                 {error || " "}
