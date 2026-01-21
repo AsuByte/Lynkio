@@ -34,7 +34,7 @@ const Footer = () => {
         </a>
 
         <a
-          href="https://www.linkedin.com/in/christian-asuero-carrell%C3%A1n-6592662aa/"
+          href="https://www.linkedin.com/in/christian-asuero"
           target="_blank"
           rel="noopener noreferrer"
           className="text-(--color-text-primary) hover:text-(--color-accent) transition-colors duration-200"
